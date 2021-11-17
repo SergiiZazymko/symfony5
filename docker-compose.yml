@@ -40,3 +40,6 @@ services:
     ports:
       - "808:80"
       - "444:443"
+
+volumes:
+  db-data:

@@ -12,6 +12,8 @@ RUN apt-get update && \
     docker-php-ext-enable apcu pdo_pgsql sodium && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN echo 'alias sf="php bin/console"' >> ~/.bashrc
+
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
