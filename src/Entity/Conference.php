@@ -39,21 +39,35 @@ class Conference
      */
     private $comments;
 
+    /**
+     * Conference constructor.
+     *
+     */
     public function __construct()
     {
         $this->comments = new ArrayCollection();
     }
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     */
     public function getCity(): ?string
     {
         return $this->city;
     }
 
+    /**
+     * @param string $city
+     * @return $this
+     */
     public function setCity(string $city): self
     {
         $this->city = $city;
@@ -61,11 +75,18 @@ class Conference
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getYear(): ?string
     {
         return $this->year;
     }
 
+    /**
+     * @param string $year
+     * @return $this
+     */
     public function setYear(string $year): self
     {
         $this->year = $year;
@@ -73,11 +94,18 @@ class Conference
         return $this;
     }
 
+    /**
+     * @return bool|null
+     */
     public function getIsInternational(): ?bool
     {
         return $this->isInternational;
     }
 
+    /**
+     * @param bool $isInternational
+     * @return $this
+     */
     public function setIsInternational(bool $isInternational): self
     {
         $this->isInternational = $isInternational;
@@ -105,7 +133,8 @@ class Conference
 
     public function removeComment(Comment $comment): self
     {
-        if ($this->comments->removeElement($comment)) {
+        if ($this->comments->contains($comment)) {
+            $this->comments->removeElement($comment);
             // set the owning side to null (unless already changed)
             if ($comment->getConference() === $this) {
                 $comment->setConference(null);
@@ -113,5 +142,13 @@ class Conference
         }
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->city . ' ' . $this->year;
     }
 }

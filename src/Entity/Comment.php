@@ -48,16 +48,26 @@ class Comment
      */
     private $photoFilename;
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     */
     public function getAuthor(): ?string
     {
         return $this->author;
     }
 
+    /**
+     * @param string $author
+     * @return $this
+     */
     public function setAuthor(string $author): self
     {
         $this->author = $author;
@@ -65,11 +75,18 @@ class Comment
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getText(): ?string
     {
         return $this->text;
     }
 
+    /**
+     * @param string $text
+     * @return $this
+     */
     public function setText(string $text): self
     {
         $this->text = $text;
@@ -77,11 +94,18 @@ class Comment
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
+    /**
+     * @param string $email
+     * @return $this
+     */
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -89,11 +113,18 @@ class Comment
         return $this;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
 
+    /**
+     * @param \DateTimeInterface $createdAt
+     * @return $this
+     */
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
@@ -101,11 +132,18 @@ class Comment
         return $this;
     }
 
+    /**
+     * @return Conference|null
+     */
     public function getConference(): ?Conference
     {
         return $this->conference;
     }
 
+    /**
+     * @param Conference|null $conference
+     * @return $this
+     */
     public function setConference(?Conference $conference): self
     {
         $this->conference = $conference;
@@ -113,15 +151,30 @@ class Comment
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getPhotoFilename(): ?string
     {
         return $this->photoFilename;
     }
 
+    /**
+     * @param string|null $photoFilename
+     * @return $this
+     */
     public function setPhotoFilename(?string $photoFilename): self
     {
         $this->photoFilename = $photoFilename;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return $this->email;
     }
 }
