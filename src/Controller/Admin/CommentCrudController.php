@@ -27,6 +27,10 @@ class CommentCrudController extends AbstractCrudController
         return Comment::class;
     }
 
+    /**
+     * @param Crud $crud
+     * @return Crud
+     */
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
@@ -37,6 +41,10 @@ class CommentCrudController extends AbstractCrudController
         ;
     }
 
+    /**
+     * @param Filters $filters
+     * @return Filters
+     */
     public function configureFilters(Filters $filters): Filters
     {
         return $filters
@@ -68,21 +76,5 @@ class CommentCrudController extends AbstractCrudController
         } else {
             yield $createdAt;
         }
-    }
-
-    /**
-     * @return ContainerInterface
-     */
-    public function getContainer(): ContainerInterface
-    {
-        return $this->container;
-    }
-
-    /**
-     * @param ContainerInterface $container
-     */
-    public function setContainer(ContainerInterface $container): void
-    {
-        $this->container = $container;
     }
 }
