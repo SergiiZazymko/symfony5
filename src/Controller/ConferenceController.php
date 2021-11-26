@@ -31,7 +31,7 @@ class ConferenceController extends AbstractController
      * @param CommentRepository $commentRepository
      * @return Response
      */
-    #[Route('/conference/{id}', name: 'conference')]
+    #[Route('/conference/{slug}', name: 'conference')]
     public function show(Request $request, Conference $conference, CommentRepository $commentRepository): Response
     {
         $offset = $request->query->getInt('offset', 0);
