@@ -75,5 +75,5 @@ cli: ## Run CLI
 
 up: ## Up the project
 	$(info Make: Init the project.)
-	@make -s down
+	@make -s stop
 	@make -s start
